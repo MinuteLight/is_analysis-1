@@ -42,7 +42,7 @@ end fork
 :期末流程结束;
 @enduml
 ```
-![](images/test_1_1.png)
+![](image/test_1_1.png)
 
 # 流程图2： 客户维修服务流程
 ## 源码如下
@@ -83,4 +83,4 @@ end fork
 stop
 @enduml
 ```
-![](images/test_1_2.png)
+![](image/test_1_2.png)
