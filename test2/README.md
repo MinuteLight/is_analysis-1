@@ -41,7 +41,7 @@ rectangle 图书管理系统用例图{
 }
 @enduml
 ```
-![](images/test_2_1.png)
+![](images/test2_1.png)
 # 2.“借书和续借”的PlantUML源码：
 ```
 @startuml
@@ -80,7 +80,7 @@ rectangle 图书管理系统用例图{
     
     @enduml
  ```
-![](images/test_2_2.png)
+![](images/test2_2.png)
    
 # 3.“登录注册”的的PlantUML源码
 ```
@@ -126,4 +126,4 @@ rectangle 图书管理系统用例图{
     
     @enduml
  ```
-![](images/test_2_3.png)
+![](images/test2_3.png)
