@@ -54,6 +54,7 @@ Item "0..*" -- "1" Manager:维护书籍信息
 @enduml
 ```
 ## 1.2类图如下所示：
+![](images/test3_1.png)
 ## 类图说明：
 ```
 Title：标题类
@@ -128,3 +129,4 @@ Borrower "0..*" -- "1" Manager:维护读者信息
 }
 @enduml
 ```
+![](images/test3_2.png)
