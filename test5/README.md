@@ -26,7 +26,7 @@
 
 - API接口如下：
 
-1. 图书查询API
+### 2.2 图书查询界面及API
 ![](images/所有图书.png)
 - 功能：用于获取所有图书信息
 - 请求地址： http://localhost:8080/bookManagerV4.0/page/book/findBook.html?all
@@ -70,7 +70,7 @@
 |count|查询数的总数|
 |data|书籍的详细信息|
 
-2.编辑图书API
+### 2.3 编辑图书界面及API
 ![](images/编辑.png)
 - 功能：修改图书的信息
 - 请求地址： http://localhost:8080/bookManagerV4.0/page/book/updateBook.html?book.bookNo=123
@@ -102,38 +102,34 @@
 |:-------:|:-------------: |
 |1|成功|
 
-
-### 2.2. 个人信息页面设计
-![pic1](images/个人信息界面.png)
-- 用例图参见：个人信息用例
-- 类图参见：读者类
-- 顺序图参见：读者顺序图
-- API接口如下：
-
-1. 个人信息API
-
-- 功能：用于获取读者的个人信息
-- 请求地址： http://localhost:8080/BookManagementSystem/showReaderInfo
+### 2.4 查询所有图书类别及API
+![](images/所有图书类别.png)
+- 功能：查询所有图书类别及其信息
+- 请求地址： http://localhost:8080/bookManagerV4.0/page/book/findBookType.html
 - 请求方法：POST
-- 请求参数：
+- 请求参数：pageNow: 1,pageSize: 10
 
 |参数名称|必填|说明|
 |:-------:|:-------------: | :----------:|
-|borrow_id|是|读者编号|
+|pageNow|是|当前页|
+|pageSize|是|每页的数量|
 
 - 返回实例：
 ```
 {
-    "status_code": "1/0",
-    "data": 
+    code:0
+    count:5
+    "data": 
     [
-        {
-            "account","meien",
-            "password","123",
-            "nickname","梅恩",
-            "student_id","201510414413",
-            "head_img","http://www.meien.xyz/meien.jpg"
-        },
+      0:{
+          addTime:{date: 4, day: 1, hours: 20, minutes: 52, month: 11, nanos: 0, seconds: 48, time: 1512391968000,…}
+          bookTypeName:"计算机"
+          id:21
+          lastTime:{date: 4, day: 1, hours: 20, minutes: 52, month: 11, nanos: 0, seconds: 48, time: 1512391968000,…}
+          num:49
+          },
+       1:{...},
+       2:{...},
     ]
 }
 ```
@@ -141,43 +137,124 @@
     
 |参数名称|说明|
 |:-------:|:-------------: |
-|status_code|状态码（1成功，0失败）|
+|count|查询数的总数|
+|data|书籍类别的详细信息|
+
+### 2.5 查询所有读者界面及API
+![](images/所有读者.png)
+- 功能：查询所有读者及其信息
+- 请求地址： http://localhost:8080/bookManagerV4.0/page/reader/findReader.html?all
+- 请求方法：POST
+- 请求参数：pageNow: 1,pageSize: 10
+
+|参数名称|必填|说明|
+|:-------:|:-------------: | :----------:|
+|pageNow|是|当前页|
+|pageSize|是|每页的数量|
+
+- 返回实例：
+```
+{
+    code:0
+    count:5
+    "data": 
+    [
+      0:{
+          addTime:{date: 4, day: 1, hours: 10, minutes: 1, month: 11, nanos: 0, seconds: 17, time: 1512352877000,…}
+          address:"123"
+          credit:0
+          email:"849673404@qq.com"
+          lastTime:{date: 25, day: 1, hours: 17, minutes: 24, month: 11, nanos: 0, seconds: 35, time: 1514193875000,…}
+          password:"123"
+          photo:[-1, -40, -1, -32, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 96, 0, 96, 0, 0, -1, -31, 0, 34, 69, 120, 105,…]
+          readerName:"罗廷方"
+          readerNo:"001"
+          readerType:{,…}
+          sex:"女"
+          status:1
+          telephone:"123"
+          username:"12315"
+          },
+       1:{...},
+       2:{...},
+    ]
+}
+```
+- 返回参数说明：
+    
+|参数名称|说明|
+|:-------:|:-------------: |
+|count|查询数的总数|
 |data|读者的详细信息|
 
-## 2.3. 借阅信息页面设计
-![pic1](images/借阅信息页面.png)
-- 用例图参见：借阅用例
-- 类图参见：借阅类
-- 顺序图参见：借阅图书顺序图
-- API接口如下：
-
-1. 借阅信息API
-
-- 功能：用于获取读者的借阅信息
-- 请求地址： http://localhost:8080/BookManagementSystem/getBorrowInfo
+### 2.6 借阅界面设计及API
+![](images/借阅.png)
+- 功能：查询所有借阅及其信息
+- 请求地址： http://localhost:8080/bookManagerV4.0/page/lend/findLend.html?findLendByReader
 - 请求方法：POST
-- 请求参数：
+- 请求参数：pageNow: 1,pageSize: 10
 
 |参数名称|必填|说明|
 |:-------:|:-------------: | :----------:|
-|borrow_id|是|读者编号|
+|pageNow|是|当前页|
+|pageSize|是|每页的数量|
 
 - 返回实例：
 ```
 {
-    "status_code": "1/0",
-    "data": 
+    code:0
+    count:3
+    "data": 
     [
-        {
-            "book_name","大学物理",
-            "book_id","ME_2323",
-            "book_type","3",
-            "author","梅恩",
-            "press","成大出版社",
-            "price","66.66",
-            "borrow_time","2018-10-10 10:10:10",
-            "should_r_time","2018-11-10 10:10:10",
-        },
+      0:{
+          bookNo:{
+                  addTime:{date: 4, day: 1, hours: 10, minutes: 1, month: 11, nanos: 0, seconds: 17, time: 1512352877000,…}
+                  address:"123"
+                  credit:0
+                  email:"849673404@qq.com"
+                  lastTime:{date: 25, day: 1, hours: 17, minutes: 24, month: 11, nanos: 0, seconds: 35, time: 1514193875000,…}
+                  password:"123"
+                  photo:[-1, -40, -1, -32, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 96, 0, 96, 0, 0, -1, -31, 0, 34, 69, 120, 105,…]
+                  readerName:"罗廷方"
+                  readerNo:"001"
+                  readerType:{,…}
+                  sex:"女"
+                  addTime:{date: 4, day: 1, hours: 20, minutes: 52, month: 11, nanos: 0, seconds: 18, time: 1512391938000,…}
+                  author:"罗廷方1"
+                  bookName:"Java"
+                  bookNo:"0881"
+                  bookType:{,…}
+                  introduction:"《你是人间四月天》收录了林徽因几乎所有的诗歌、散文、小说。"
+                  lastTime:{date: 6, day: 3, hours: 10, minutes: 17, month: 11, nanos: 0, seconds: 53, time: 1512526673000,…}
+                  num:84
+                  photo:[-1, -40, -1, -32, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 72, 0, 72, 0, 0, -1, -37, 0, 67, 0, 9, 6, 7,…]
+                  price:595
+                  publish:"成都大学出版社"
+                  publishDate:{date: 4, day: 1, hours: 20, minutes: 52, month: 11, nanos: 0, seconds: 15, time: 1512391935000,…}
+                  snum:80
+                  }
+          id:21
+          borrowDate:{date: 25, day: 1, hours: 10, minutes: 4, month: 11, nanos: 0, seconds: 51, time: 1514167491000,…}
+          readerNo:{
+                   addTime:{date: 4, day: 1, hours: 9, minutes: 19, month: 11, nanos: 0, seconds: 14, time: 1512350354000,…}
+                   address:"1321321"
+                   credit:0
+                   email:"132132@qq.com"
+                   lastTime:{date: 7, day: 1, hours: 17, minutes: 44, month: 4, nanos: 0, seconds: 39, time: 1525686279000,…}
+                   password:"32132"
+                   photo:[-1, -40, -1, -32, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 96, 0, 96, 0, 0, -1, -31, 0, 34, 69, 120, 105,…]
+                   readerName:"罗廷方2"
+                   readerNo:"1231"
+                   readerType:{,…}
+                   sex:"男"
+                   status:0
+                   telephone:"132132"
+                   username:"132132"
+          }
+          returnDate:{date: 24, day: 3, hours: 10, minutes: 4, month: 0, nanos: 0, seconds: 51, time: 1516759491000,…}
+          },
+       1:{...},
+       2:{...},
     ]
 }
 ```
@@ -185,43 +262,5 @@
     
 |参数名称|说明|
 |:-------:|:-------------: |
-|status_code|状态码（1成功，0失败）|
-|data|借阅信息的详细信息|
-
-
-### 2.4. 添加图书页面设计
-![pic1](images/添加图书.png)
-- 用例图参见：图书用例
-- 类图参见：图书类
-- 顺序图参见：图书顺序图
-- API接口如下：
-
-1. 添加图书API
-
-- 功能：用于管理员添加图书信息
-- 请求地址： http://localhost:8080/BookManagementSystem/addBook
-- 请求方法：POST
-- 请求参数：
-
-|参数名称|必填|说明|
-|:-------:|:-------------: | :----------:|
-|book_id|是|图书编号|
-|book_name|是|图书名称|
-|book_type|否|类别（默认文学类）|
-|author|是|作者|
-|press|是|出版社|
-|price|是|单价|
-|publish_time|是|出版日期|
-
-- 返回实例：
-```
-{
-    "status_code": "1/0"
-}
-```
-- 返回参数说明：
-    
-|参数名称|说明|
-|:-------:|:-------------: |
-|status_code|状态码（1成功，0失败）|
-
+|count|查询数的总数|
+|data|借阅的详细信息|
