@@ -7,15 +7,17 @@
 
 ### 1.2. 读者表
 ![](images/t_reader.png)
-
+![](images/t_reader信息.png)
 ### 1.3. 管理员表
 ![](images/t_admin.png)
 
 ### 1.4. 借阅归还表
 ![](images/t_lend.png)
+![](images/t_lend信息.png)
 
 ### 1.5. 读者类别表
 ![](images/t_readerType.png)
+
 
 ### 1.6. 图书类别表
 ![](images/t_bookType.png)
@@ -70,7 +72,7 @@
 |data|书籍的详细信息|
 
 ### 2.3 编辑图书界面及API
-![](images/编辑.png)
+![](images/编辑图书.png)
 - 功能：修改图书的信息
 - 请求地址： http://localhost:8080/bookManagerV4.0/page/book/updateBook.html?book.bookNo=123
 - 请求方法：POST
