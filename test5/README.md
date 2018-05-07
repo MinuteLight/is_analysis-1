@@ -24,10 +24,9 @@
 ### 2.1. 首页设计
 ![](images/首页.png)
 
-- API接口如下：
-
 ### 2.2 图书查询界面及API
 ![](images/所有图书.png)
+- API接口如下：
 - 功能：用于获取所有图书信息
 - 请求地址： http://localhost:8080/bookManagerV4.0/page/book/findBook.html?all
 - 请求方法：POST
